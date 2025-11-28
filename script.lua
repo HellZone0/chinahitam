@@ -5576,7 +5576,7 @@ else
                                 name = "Ding dongggg! Webhook is connected :3"
                             }, 
                             image = {
-                                url = "https://media.tenor.com/KJDqZ0H6Gb4AAAAC/gawr-gura-gura.gif"
+                                url = "https://tenor.com/bW3Gm.gif"
                             }
                         }
                     }, 
