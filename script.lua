@@ -356,7 +356,7 @@ else
             if v63 then
                 task.wait(2);
                 l_HumanoidRootPart_1.CFrame = v63;
-                chloex("Teleported to your last position...");
+                neurox("Teleported to your last position...");
             end;
         end);
     end;
@@ -491,7 +491,7 @@ else
     local function v108(v107) --[[ Line: 0 ]] --[[ Name:  ]]
         -- upvalues: v8 (ref)
         if v8.lastState ~= v107 then
-            chloex(v107);
+            neurox(v107);
             v8.lastState = v107;
         end;
     end;
@@ -571,12 +571,12 @@ else
                         v81(v121, v122, true);
                         task.wait(0.5);
                         v70(v121, true);
-                        chloex("Respawn \226\134\146 Back");
+                        neurox("Respawn \226\134\146 Back");
                     elseif v8.origCF then
                         v121:PivotTo(v8.origCF);
                         v70(v121, false);
                         v81(v121, v122, true);
-                        chloex("Back to farm");
+                        neurox("Back to farm");
                     end;
                 end;
             end);
@@ -655,7 +655,7 @@ else
         Version = 3
     });
     if v137 then
-        chloex("Window loaded!");
+        neurox("Window loaded!");
     end;
     local v138 = {
         Info = v137:AddTab({
@@ -778,7 +778,7 @@ else
                                 elseif v8.fishingTimer >= (v8.stuckThreshold or 10) then
                                     l_l_v8_2_0 = "STUCK! Resetting...";
                                     l_l_v8_3_0 = "255,69,0";
-                                    chloex("Fishing Stuck! Resetting...", 3);
+                                    neurox("Fishing Stuck! Resetting...", 3);
                                     local v155 = v8.char and v8.char:FindFirstChild("HumanoidRootPart");
                                     if v155 then
                                         v8.savedCFrame = v155.CFrame;
@@ -1267,7 +1267,7 @@ else
             pcall(function() --[[ Line: 0 ]] --[[ Name:  ]]
                 -- upvalues: v6 (ref)
                 v6.Functions.Cancel:InvokeServer();
-                chloex("Recovery Successfully!");
+                neurox("Recovery Successfully!");
             end);
         end
     });
@@ -1591,9 +1591,9 @@ else
                 end;
             else
                 v8.fishingPanelRunning = false;
-                local l_ChloeX_FishingPanel_0 = game.CoreGui:FindFirstChild("NeuroX_FishingPanel");
-                if l_ChloeX_FishingPanel_0 then
-                    l_ChloeX_FishingPanel_0:Destroy();
+                local l_NeuroX_FishingPanel_0 = game.CoreGui:FindFirstChild("NeuroX_FishingPanel");
+                if l_NeuroX_FishingPanel_0 then
+                    l_NeuroX_FishingPanel_0:Destroy();
                 end;
             end;
         end
@@ -1607,7 +1607,7 @@ else
             local l_TweenService_0 = game:GetService("TweenService");
             if v281 then
                 if l_CoreGui_0:FindFirstChild("NeuroX_BlackScreen") then
-                    l_CoreGui_0.ChloeX_BlackScreen:Destroy();
+                    l_CoreGui_0.NeuroX_BlackScreen:Destroy();
                 end;
                 local l_ScreenGui_1 = Instance.new("ScreenGui");
                 l_ScreenGui_1.Name = "NeuroX_BlackScreen";
@@ -2018,7 +2018,7 @@ else
             local v350 = l_Character_1 and l_Character_1:FindFirstChild("HumanoidRootPart");
             if v350 then
                 SavePosition(v350.CFrame);
-                chloex("Position saved successfully!");
+                neurox("Position saved successfully!");
             end;
         end, 
         SubTitle = "Reset Position", 
@@ -2027,7 +2027,7 @@ else
             if isfile(v3) then
                 delfile(v3);
             end;
-            chloex("Last position has been reset.");
+            neurox("Last position has been reset.");
         end
     });
     local v351 = v138.Auto:AddSection("Enchant Features");
@@ -2534,7 +2534,7 @@ else
             else
                 if v8.origCF then
                     l_LocalPlayer_0.Character:PivotTo(v8.origCF);
-                    chloex("Auto Event Off");
+                    neurox("Auto Event Off");
                 end;
                 local l_v8_4 = v8;
                 local l_v8_5 = v8;
@@ -2646,10 +2646,10 @@ else
         else
             if v513 then
                 v501("Sending");
-                chloex("Sending " .. v513);
+                neurox("Sending " .. v513);
             else
                 v506("Sending");
-                chloex("Sending fish for coins");
+                neurox("Sending fish for coins");
             end;
             if not pcall(function() --[[ Line: 0 ]] --[[ Name:  ]]
                 -- upvalues: v6 (ref), l_FirstChild_1 (ref), v512 (ref)
@@ -2705,16 +2705,16 @@ else
         if l_trade_4.trading then
             return;
         elseif not l_trade_4.selectedPlayer or not l_trade_4.selectedItem then
-            return chloex("Select player & item first!");
+            return neurox("Select player & item first!");
         else
             l_trade_4.trading = true;
             l_trade_4.successCount = 0;
-            chloex("Starting trade with " .. l_trade_4.selectedPlayer);
+            neurox("Starting trade with " .. l_trade_4.selectedPlayer);
             local v528 = l_trade_4.currentGrouped[l_trade_4.selectedItem];
             if not v528 then
                 l_trade_4.trading = false;
                 v501("<font color='#ff3333'>Item not found</font>");
-                return chloex("Item not found");
+                return neurox("Item not found");
             else
                 l_trade_4.totalToTrade = math.min(l_trade_4.tradeAmount, #v528.uuids);
                 local v529 = 1;
@@ -2728,7 +2728,7 @@ else
                 end;
                 l_trade_4.trading = false;
                 v501("<font color='#66ccff'>All trades finished</font>");
-                chloex("All trades finished");
+                neurox("All trades finished");
                 return;
             end;
         end;
@@ -2759,7 +2759,7 @@ else
         if l_trade_5.trading then
             return;
         elseif not l_trade_5.selectedPlayer or l_trade_5.targetCoins <= 0 then
-            return chloex("\226\154\160 Select player & coin target first!");
+            return neurox("\226\154\160 Select player & coin target first!");
         else
             l_trade_5.trading = true;
             local v539 = 0;
@@ -2768,7 +2768,7 @@ else
             l_trade_5.successCoins = v540;
             l_trade_5.sentCoins = v539;
             v506("<font color='#ffaa00'>Starting...</font>");
-            chloex("Starting coin trade with " .. l_trade_5.selectedPlayer);
+            neurox("Starting coin trade with " .. l_trade_5.selectedPlayer);
             v539 = v0.Players.LocalPlayer;
             v540 = v5.PlayerStatsUtility:GetPlayerModifiers(v539);
             local v541 = {};
@@ -2795,7 +2795,7 @@ else
             if #v541 == 0 then
                 l_trade_5.trading = false;
                 v506("<font color='#ff3333'>No fishes found</font>");
-                chloex("\226\154\160 No fishes found in inventory");
+                neurox("\226\154\160 No fishes found in inventory");
                 return;
             else
                 local v548, v549 = chooseFishesByRange(v541, l_trade_5.targetCoins);
@@ -2824,7 +2824,7 @@ else
                         end;
                         l_trade_5.trading = false;
                         v506(string.format("<font color='#66ccff'>Coin trade finished (Target: %d, Received: %d)</font>", l_trade_5.targetCoins, l_trade_5.successCoins));
-                        chloex(string.format("Coin trade finished (Target: %d, Received: %d)", l_trade_5.targetCoins, l_trade_5.successCoins));
+                        neurox(string.format("Coin trade finished (Target: %d, Received: %d)", l_trade_5.targetCoins, l_trade_5.successCoins));
                         return;
                     end;
                 end;
@@ -3021,11 +3021,11 @@ else
         if l_trade_7.trading then
             return;
         elseif not l_trade_7.selectedPlayer or not l_trade_7.selectedRarity then
-            return chloex("\226\154\160 Select player & rarity first!");
+            return neurox("\226\154\160 Select player & rarity first!");
         else
             l_trade_7.trading = true;
             l_trade_7.successCount = 0;
-            chloex("Starting rarity trade (" .. l_trade_7.selectedRarity .. ") with " .. l_trade_7.selectedPlayer);
+            neurox("Starting rarity trade (" .. l_trade_7.selectedRarity .. ") with " .. l_trade_7.selectedPlayer);
             v576("<font color='#ffaa00'>Scanning " .. l_trade_7.selectedRarity .. " fishes...</font>");
             local v584 = {};
             for _, v586 in ipairs(v7.Data:GetExpect({
@@ -3045,7 +3045,7 @@ else
             if #v584 == 0 then
                 l_trade_7.trading = false;
                 v576("<font color='#ff3333'>No " .. l_trade_7.selectedRarity .. " fishes found</font>");
-                return chloex("No " .. l_trade_7.selectedRarity .. " fishes found");
+                return neurox("No " .. l_trade_7.selectedRarity .. " fishes found");
             else
                 l_trade_7.totalToTrade = math.min(#v584, l_trade_7.rarityAmount or #v584);
                 v576(string.format("Sending %d %s fishes...", l_trade_7.totalToTrade, l_trade_7.selectedRarity));
@@ -3061,7 +3061,7 @@ else
                 end;
                 l_trade_7.trading = false;
                 v576("<font color='#66ccff'>Rarity trade finished</font>");
-                chloex("Rarity trade finished (" .. l_trade_7.selectedRarity .. ")");
+                neurox("Rarity trade finished (" .. l_trade_7.selectedRarity .. ")");
                 return;
             end;
         end;
@@ -3150,7 +3150,7 @@ else
                 if setclipboard then
                     setclipboard(v608);
                 end;
-                chloex("Successfully copied your position to clipboard!");
+                neurox("Successfully copied your position to clipboard!");
             end;
         end
     });
@@ -4092,9 +4092,9 @@ else
                 end;
             else
                 _G.KaitunPanel = false;
-                local l_ChloeX_KaitunPanel_0 = v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel");
-                if l_ChloeX_KaitunPanel_0 then
-                    l_ChloeX_KaitunPanel_0:Destroy();
+                local l_NeuroX_KaitunPanel_0 = v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel");
+                if l_NeuroX_KaitunPanel_0 then
+                    l_NeuroX_KaitunPanel_0:Destroy();
                 end;
             end;
         end
@@ -4104,9 +4104,9 @@ else
         Default = false, 
         Callback = function(v811) --[[ Line: 0 ]] --[[ Name:  ]]
             -- upvalues: v0 (ref)
-            local l_ChloeX_KaitunPanel_1 = v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel");
-            if l_ChloeX_KaitunPanel_1 then
-                local v813 = l_ChloeX_KaitunPanel_1:FindFirstChild("MainCard") or l_ChloeX_KaitunPanel_1:FindFirstChildWhichIsA("Frame");
+            local l_NeuroX_KaitunPanel_1 = v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel");
+            if l_NeuroX_KaitunPanel_1 then
+                local v813 = l_NeuroX_KaitunPanel_1:FindFirstChild("MainCard") or l_NeuroX_KaitunPanel_1:FindFirstChildWhichIsA("Frame");
                 if v813 then
                     v813.Visible = not v811;
                 end;
@@ -4761,7 +4761,7 @@ else
         Callback = function() --[[ Line: 0 ]] --[[ Name:  ]]
             -- upvalues: v960 (ref), v126 (ref)
             v960:SetValues(v126());
-            chloex("Player list refreshed!");
+            neurox("Player list refreshed!");
         end
     });
     v958:AddButton({
@@ -4771,7 +4771,7 @@ else
             -- upvalues: v8 (ref), v0 (ref), l_LocalPlayer_0 (ref)
             local l_teleportTarget_0 = v8.trade.teleportTarget;
             if not l_teleportTarget_0 then
-                chloex("Please select a player first!");
+                neurox("Please select a player first!");
                 return;
             else
                 local l_FirstChild_4 = v0.Players:FindFirstChild(l_teleportTarget_0);
@@ -4779,12 +4779,12 @@ else
                     local v963 = l_LocalPlayer_0.Character and l_LocalPlayer_0.Character:FindFirstChild("HumanoidRootPart");
                     if v963 then
                         v963.CFrame = l_FirstChild_4.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0);
-                        chloex("Teleported to " .. l_FirstChild_4.Name);
+                        neurox("Teleported to " .. l_FirstChild_4.Name);
                     else
-                        chloex("Your HumanoidRootPart not found.");
+                        neurox("Your HumanoidRootPart not found.");
                     end;
                 else
-                    chloex("Target not found or not loaded.");
+                    neurox("Target not found or not loaded.");
                 end;
                 return;
             end;
@@ -4807,7 +4807,7 @@ else
             -- upvalues: v8 (ref), v127 (ref)
             local l_teleportTarget_1 = v8.teleportTarget;
             if not l_teleportTarget_1 then
-                chloex("Please select a location first!");
+                neurox("Please select a location first!");
                 return;
             else
                 local v967 = v127[l_teleportTarget_1];
@@ -4815,7 +4815,7 @@ else
                     local l_HumanoidRootPart_18 = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart");
                     if l_HumanoidRootPart_18 then
                         l_HumanoidRootPart_18.CFrame = CFrame.new(v967 + Vector3.new(0, 3, 0));
-                        chloex("Teleported to " .. l_teleportTarget_1);
+                        neurox("Teleported to " .. l_teleportTarget_1);
                     end;
                 end;
                 return;
@@ -5067,7 +5067,7 @@ else
                                                         pcall(function() --[[ Line: 0 ]] --[[ Name:  ]]
                                                             -- upvalues: v6 (ref), l_v1018_0 (ref)
                                                             v6.Events.REEvReward:FireServer(l_v1018_0);
-                                                            chloex(string.format("Claimed Reward #%d", l_v1018_0));
+                                                            neurox(string.format("Claimed Reward #%d", l_v1018_0));
                                                         end);
                                                         task.wait(0.7);
                                                     end;
@@ -5598,9 +5598,9 @@ else
                         });
                     end);
                     if l_status_16 then
-                        chloex("Successfully sent test message!");
+                        neurox("Successfully sent test message!");
                     else
-                        chloex("Failed to send webhook:", l_result_16);
+                        neurox("Failed to send webhook:", l_result_16);
                     end;
                 end);
                 return;
@@ -6055,7 +6055,7 @@ else
         Callback = function(v1197) --[[ Line: 0 ]] --[[ Name:  ]]
             -- upvalues: v1180 (ref), v1181 (ref), v0 (ref)
             if v1197 and (not _G.DisconnectCustomName or _G.DisconnectCustomName == "") then
-                chloex("Invalid! Input Hide Identity first.");
+                neurox("Invalid! Input Hide Identity first.");
                 if _G.WebhookFlags and _G.WebhookFlags.Disconnect then
                     _G.WebhookFlags.Disconnect.Enabled = false;
                 end;
@@ -6108,7 +6108,7 @@ else
         Title = "Test Disconnected Player", 
         Content = "Kick yourself, send webhook, and auto rejoin.", 
         Callback = function() --[[ Line: 0 ]] --[[ Name:  ]]
-            chloex("Kicking player...");
+            neurox("Kicking player...");
             task.wait(1);
             SendDisconnectWebhook("Test Successfully :3");
             task.wait(2);
@@ -6126,7 +6126,7 @@ else
             -- upvalues: v1210 (ref)
             if v1212 and v1212:match("^https://discord.com/api/webhooks/") then
                 v1210.Links.Hunt = v1212;
-                chloex("Hunt webhook updated!");
+                neurox("Hunt webhook updated!");
             end;
         end
     });
@@ -6137,7 +6137,7 @@ else
             -- upvalues: v1210 (ref)
             if v1213 and v1213:match("^https://discord.com/api/webhooks/") then
                 v1210.Links.ServerLuck = v1213;
-                chloex("Server Luck webhook updated!");
+                neurox("Server Luck webhook updated!");
             end;
         end
     });
