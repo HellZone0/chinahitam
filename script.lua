@@ -1466,11 +1466,11 @@ else
             -- upvalues: v8 (ref)
             if v254 then
                 local l_LocalPlayer_2 = game:GetService("Players").LocalPlayer;
-                if game.CoreGui:FindFirstChild("ChloeX_FishingPanel") then
-                    game.CoreGui:FindFirstChild("ChloeX_FishingPanel"):Destroy();
+                if game.CoreGui:FindFirstChild("NeuroX_FishingPanel") then
+                    game.CoreGui:FindFirstChild("NeuroX_FishingPanel"):Destroy();
                 end;
                 local l_ScreenGui_0 = Instance.new("ScreenGui");
-                l_ScreenGui_0.Name = "ChloeX_FishingPanel";
+                l_ScreenGui_0.Name = "NeuroX_FishingPanel";
                 l_ScreenGui_0.IgnoreGuiInset = true;
                 l_ScreenGui_0.ResetOnSpawn = false;
                 l_ScreenGui_0.ZIndexBehavior = Enum.ZIndexBehavior.Global;
@@ -1500,7 +1500,7 @@ else
                 v260.Position = UDim2.new(0, 45, 0, 5);
                 v260.BackgroundTransparency = 1;
                 v260.Font = Enum.Font.GothamBold;
-                v260.Text = "CHLOEX PANEL FISHING";
+                v260.Text = "NEUROX PANEL FISHING";
                 v260.TextSize = 22;
                 v260.TextColor3 = Color3.fromRGB(255, 255, 255);
                 v260.TextXAlignment = Enum.TextXAlignment.Left;
@@ -1591,7 +1591,7 @@ else
                 end;
             else
                 v8.fishingPanelRunning = false;
-                local l_ChloeX_FishingPanel_0 = game.CoreGui:FindFirstChild("ChloeX_FishingPanel");
+                local l_ChloeX_FishingPanel_0 = game.CoreGui:FindFirstChild("NeuroX_FishingPanel");
                 if l_ChloeX_FishingPanel_0 then
                     l_ChloeX_FishingPanel_0:Destroy();
                 end;
@@ -1606,11 +1606,11 @@ else
             local l_CoreGui_0 = game:GetService("CoreGui");
             local l_TweenService_0 = game:GetService("TweenService");
             if v281 then
-                if l_CoreGui_0:FindFirstChild("ChloeX_BlackScreen") then
+                if l_CoreGui_0:FindFirstChild("NeuroX_BlackScreen") then
                     l_CoreGui_0.ChloeX_BlackScreen:Destroy();
                 end;
                 local l_ScreenGui_1 = Instance.new("ScreenGui");
-                l_ScreenGui_1.Name = "ChloeX_BlackScreen";
+                l_ScreenGui_1.Name = "NeuroX_BlackScreen";
                 l_ScreenGui_1.IgnoreGuiInset = true;
                 l_ScreenGui_1.ResetOnSpawn = false;
                 l_ScreenGui_1.ZIndexBehavior = Enum.ZIndexBehavior.Global;
@@ -1627,8 +1627,8 @@ else
                     BackgroundTransparency = 0
                 }):Play();
                 local v286 = {
-                    "ChloeX_FishingPanel", 
-                    "Chloeex", 
+                    "NeuroX_FishingPanel", 
+                    "Neuroex", 
                     "ToggleUIButton"
                 };
                 for _, v288 in ipairs(v286) do
@@ -3734,11 +3734,11 @@ else
             -- upvalues: v0 (ref), v7 (ref), v6 (ref)
             _G.KaitunPanel = v729;
             if v729 then
-                if v0.CoreGui:FindFirstChild("ChloeX_KaitunPanel") then
-                    v0.CoreGui:FindFirstChild("ChloeX_KaitunPanel"):Destroy();
+                if v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel") then
+                    v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel"):Destroy();
                 end;
                 local l_ScreenGui_2 = Instance.new("ScreenGui");
-                l_ScreenGui_2.Name = "ChloeX_KaitunPanel";
+                l_ScreenGui_2.Name = "NeuroX_KaitunPanel";
                 l_ScreenGui_2.IgnoreGuiInset = true;
                 l_ScreenGui_2.ResetOnSpawn = false;
                 l_ScreenGui_2.ZIndexBehavior = Enum.ZIndexBehavior.Global;
@@ -3756,7 +3756,7 @@ else
                 v732.Position = UDim2.new(0, 10, 0, 8);
                 v732.BackgroundTransparency = 1;
                 v732.Font = Enum.Font.GothamBold;
-                v732.Text = "CHLOEX KAITUN PANEL";
+                v732.Text = "NEUROX KAITUN PANEL";
                 v732.TextSize = 22;
                 v732.TextColor3 = Color3.fromRGB(255, 255, 255);
                 v732.TextXAlignment = Enum.TextXAlignment.Center;
@@ -4092,7 +4092,7 @@ else
                 end;
             else
                 _G.KaitunPanel = false;
-                local l_ChloeX_KaitunPanel_0 = v0.CoreGui:FindFirstChild("ChloeX_KaitunPanel");
+                local l_ChloeX_KaitunPanel_0 = v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel");
                 if l_ChloeX_KaitunPanel_0 then
                     l_ChloeX_KaitunPanel_0:Destroy();
                 end;
@@ -4104,7 +4104,7 @@ else
         Default = false, 
         Callback = function(v811) --[[ Line: 0 ]] --[[ Name:  ]]
             -- upvalues: v0 (ref)
-            local l_ChloeX_KaitunPanel_1 = v0.CoreGui:FindFirstChild("ChloeX_KaitunPanel");
+            local l_ChloeX_KaitunPanel_1 = v0.CoreGui:FindFirstChild("NeuroX_KaitunPanel");
             if l_ChloeX_KaitunPanel_1 then
                 local v813 = l_ChloeX_KaitunPanel_1:FindFirstChild("MainCard") or l_ChloeX_KaitunPanel_1:FindFirstChildWhichIsA("Frame");
                 if v813 then
@@ -4856,7 +4856,7 @@ else
                             if _G.AntiStaff then
                                 for _, v976 in ipairs(game:GetService("Players"):GetPlayers()) do
                                     if v976 ~= game.Players.LocalPlayer and l_v972_0[v976:GetRankInGroup(l_v971_0)] then
-                                        game.Players.LocalPlayer:Kick("Chloe Detected Staff, Automatically Kicked!");
+                                        game.Players.LocalPlayer:Kick("Neuro Detected Staff, Automatically Kicked!");
                                         return;
                                     end;
                                 end;
@@ -4955,7 +4955,7 @@ else
                     ColorSequenceKeypoint.new(1, Color3.fromRGB(136, 243, 255))
                 });
                 l_hideident_0.gradient.Rotation = 0;
-                l_hideident_0.header.Text = l_v980_0 ~= "" and l_v980_0 or "Chloe Rawr";
+                l_hideident_0.header.Text = l_v980_0 ~= "" and l_v980_0 or "Neuro Rawr";
                 l_hideident_0.levelLabel.Text = l_v981_0 ~= "" and l_v981_0 or "???";
                 return;
             end;
@@ -5419,7 +5419,7 @@ else
                             embeds = {
                                 {
                                     title = "Neuro X Webhook | Fish Caught", 
-                                    url = "https://discord.gg/PaPvGUE8UC", 
+                                    url = "https://discord.gg/uQwTApuTSa", 
                                     description = string.format("\226\156\166\239\184\142 Congratulations!! **%s** You have obtained a new **%s** fish!", _G.WebhookCustomName ~= "" and _G.WebhookCustomName or game.Players.LocalPlayer.Name, v1067), 
                                     color = 52221, 
                                     fields = {
@@ -5445,17 +5445,17 @@ else
                                         }
                                     }, 
                                     image = {
-                                        url = getThumbnailURL(v1066.Icon) or "https://i.imgur.com/WltO8IG.png"
+                                        url = getThumbnailURL(v1066.Icon) or "https://imgur.com/a/aQBjKin"
                                     }, 
                                     footer = {
                                         text = "Neuro X Webhook", 
-                                        icon_url = "https://i.imgur.com/WltO8IG.png"
+                                        icon_url = "https://imgur.com/a/aQBjKin"
                                     }, 
                                     timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z")
                                 }
                             }, 
                             username = "Neuro X Notification!", 
-                            avatar_url = "https://i.imgur.com/9afHGRy.jpeg"
+                            avatar_url = "https://imgur.com/a/kyUU37J"
                         };
                         sendWebhook(l_URL_0, v1071);
                         return;
@@ -5581,7 +5581,7 @@ else
                         }
                     }, 
                     username = "Neuro Notification!", 
-                    avatar_url = "https://i.imgur.com/9afHGRy.jpeg", 
+                    avatar_url = "https://imgur.com/a/kyUU37J", 
                     attachments = {}
                 };
                 task.spawn(function() --[[ Line: 0 ]] --[[ Name:  ]]
@@ -5878,7 +5878,7 @@ else
                             local v1177 = #v1170 > 0 and table.concat(v1170, "\n") or "(No Fishes Found)";
                             local v1178 = {
                                 username = "Neuro X Notification!", 
-                                avatar_url = "https://i.imgur.com/9afHGRy.jpeg", 
+                                avatar_url = "https://imgur.com/a/kyUU37J", 
                                 embeds = {
                                     {
                                         title = "\227\128\162Neuro X Webhook | Player Info", 
@@ -5909,7 +5909,7 @@ else
                                         }, 
                                         footer = {
                                             text = string.format("Neuro Auto Sync | Every %dm", _G.WebhookFlags.Stats.Delay or 5), 
-                                            icon_url = "https://i.imgur.com/WltO8IG.png"
+                                            icon_url = "https://imgur.com/a/aQBjKin"
                                         }, 
                                         timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z")
                                     }
@@ -5989,12 +5989,12 @@ else
                                 }
                             }, 
                             thumbnail = {
-                                url = "https://media.tenor.com/rx88bhLtmyUAAAAC/gawr-gura.gif"
+                                url = "https://tenor.com/bW3Gm.gif"
                             }
                         }
                     }, 
                     username = "Neuro X Notification!", 
-                    avatar_url = "https://i.imgur.com/9afHGRy.jpeg"
+                    avatar_url = "https://imgur.com/a/kyUU37J"
                 };
                 task.spawn(function() --[[ Line: 0 ]] --[[ Name:  ]]
                     -- upvalues: v1183 (ref), v0 (ref), v1192 (ref)
