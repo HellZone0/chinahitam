@@ -649,7 +649,7 @@ else
     local v137 = loadstring(game:HttpGet("https://raw.githubusercontent.com/TesterX14/XXXX/refs/heads/main/Library"))():Window({
         Title = "Neuro Hub |", 
         Footer = "Version 1.0.0", 
-        Image = "119262194774700", 
+        Image = "138961663381631", 
         Color = Color3.fromRGB(0, 208, 255), 
         Theme = 9542022979, 
         Version = 3
@@ -5419,7 +5419,7 @@ else
                             embeds = {
                                 {
                                     title = "Neuro X Webhook | Fish Caught", 
-                                    url = "https://discord.gg/uQwTApuTSa", 
+                                    url = "https://discord.gg/PaPvGUE8UC", 
                                     description = string.format("\226\156\166\239\184\142 Congratulations!! **%s** You have obtained a new **%s** fish!", _G.WebhookCustomName ~= "" and _G.WebhookCustomName or game.Players.LocalPlayer.Name, v1067), 
                                     color = 52221, 
                                     fields = {
@@ -5455,7 +5455,7 @@ else
                                 }
                             }, 
                             username = "Neuro X Notification!", 
-                            avatar_url = "https://imgur.com/a/bh6hDL8"
+                            avatar_url = "https://i.imgur.com/9afHGRy.jpeg"
                         };
                         sendWebhook(l_URL_0, v1071);
                         return;
