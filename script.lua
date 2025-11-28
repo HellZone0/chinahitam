@@ -5576,7 +5576,7 @@ else
                                 name = "Ding dongggg! Webhook is connected :3"
                             }, 
                             image = {
-                                url = "https://tenor.com/bW3Gm.gif"
+                                url = "https://tenor.com/id/view/rimuru-pixelart-gif-26429496"
                             }
                         }
                     }, 
@@ -5989,7 +5989,7 @@ else
                                 }
                             }, 
                             thumbnail = {
-                                url = "https://tenor.com/bW3Gm.gif"
+                                url = "https://tenor.com/id/view/rimuru-pixelart-gif-26429496"
                             }
                         }
                     }, 
