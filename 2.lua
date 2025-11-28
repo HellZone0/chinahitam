@@ -127,7 +127,7 @@ If you have suggestions or found bugs, please report them to <font color="rgb(0,
         Default = false,
         Callback = function(value)
             local coreGui = game:GetService("CoreGui")
-            local chloeUI = coreGui:FindFirstChild("NeuroX")
+            local chloeUI = coreGui:FindFirstChild("Neuroex")
             local toggleUI = coreGui:FindFirstChild("ToggleUIButton")
 
             if value then
@@ -492,7 +492,160 @@ If you have suggestions or found bugs, please report them to <font color="rgb(0,
             touchPan = Vector2.new()
         end)
 
+        UserInputService.TouchMoved:Connect(function(touch)
+            if touching then
+                touchPan = Vector2.new(-touch.Delta.y, -touch.Delta.x)
+            end
+        end)
+
+        function Input.Vel(dt)
+            if UserInputService.TouchEnabled then
+                local mv = LocalPlayer:GetMoveVector()
+                return Vector3.new(mv.X, 0, -mv.Z) * mobileBoost
+            end
+            navSpeed = math.clamp(navSpeed + dt * (keyboard.Up - keyboard.Down) * NAV_ADJ_SPEED, 0.01, 4)
+            local move = Vector3.new(keyboard.D - keyboard.A, keyboard.E - keyboard.Q, keyboard.S - keyboard.W)
+            local shift = UserInputService:IsKeyDown(Enum.KeyCode.LeftShift)
+            return move * NAV_KEYBOARD_SPEED * navSpeed * (shift and NAV_SHIFT_MUL or 1)
+        end
+
+        function Input.Pan(dt)
+            if UserInputService.TouchEnabled then
+                local v = touchPan * (math.pi / 360)
+                touchPan = Vector2.new()
+                return v
+            end
+            local v = mouse.Delta * PAN_MOUSE_SPEED
+            mouse.Delta = Vector2.new()
+            return v
+        end
+
+        function Keypress(_, state, input)
+            keyboard[input.KeyCode.Name] = (state == Enum.UserInputState.Begin) and 1 or 0
+            return Enum.ContextActionResult.Sink
+        end
+
+        function MousePan(_, _, input)
+            if UserInputService.TouchEnabled then return Enum.ContextActionResult.Sink end
+            mouse.Delta = Vector2.new(-input.Delta.y, -input.Delta.x)
+            return Enum.ContextActionResult.Sink
+        end
+
+        function Zero(t)
+            for k in pairs(t) do t[k] = 0 end
+        end
+
+        function Input.StartCapture()
+            if not UserInputService.TouchEnabled then
+                ContextActionService:BindActionAtPriority("FreecamKeyboard", Keypress, false, INPUT_PRIORITY,
+                    Enum.KeyCode.W, Enum.KeyCode.A, Enum.KeyCode.S, Enum.KeyCode.D,
+                    Enum.KeyCode.E, Enum.KeyCode.Q, Enum.KeyCode.Up, Enum.KeyCode.Down)
+                ContextActionService:BindActionAtPriority("FreecamMousePan", MousePan, false, INPUT_PRIORITY,
+                    Enum.UserInputType.MouseMovement)
+            end
+        end
+
+        function Input.StopCapture()
+            Zero(keyboard)
+            Zero(mouse)
+            if not UserInputService.TouchEnabled then
+                ContextActionService:UnbindAction("FreecamKeyboard")
+                ContextActionService:UnbindAction("FreecamMousePan")
+            end
+        end
+    end
+
+    function GetFocusDistance(cf)
+        local znear, viewport = 0.1, Camera.ViewportSize
+        local projy = 2 * math.tan(math.rad(70 / 2))
+        local projx = (viewport.X / viewport.Y) * projy
+        local fx, fy, fz = cf.RightVector, cf.UpVector, cf.LookVector
+        local minDist, minVect = 512, Vector3.new()
+        for x = 0, 1, 0.5 do
+            for y = 0, 1, 0.5 do
+                local cx = (x - 0.5) * projx
+                local cy = (y - 0.5) * projy
+                local offset = fx * cx - fy * cy + fz
+                local origin = cf.Position + offset * znear
+                local _, hit = workspace:FindPartOnRay(Ray.new(origin, offset.Unit * minDist))
+                if hit then
+                    local d = (hit - origin).Magnitude
+                    if d < minDist then
+                        minDist, minVect = d, offset.Unit
                     end
+                end
+            end
+        end
+        return fz:Dot(minVect) * minDist
+    end
+
+    function StepFreecam(dt)
+        local vel = velSpring:Update(dt, Input.Vel(dt))
+        local pan = panSpring:Update(dt, Input.Pan(dt))
+        cameraRot = cameraRot + pan * Vector2.new(0.75, 1)
+        cameraRot = Vector2.new(math.clamp(cameraRot.X, -math.rad(90), math.rad(90)), cameraRot.Y)
+        local cf = CFrame.new(cameraPos) * CFrame.fromOrientation(cameraRot.X, cameraRot.Y, 0) *
+            CFrame.new(vel * 64 * dt)
+        cameraPos = cf.Position
+        Camera.CFrame = cf
+        Camera.Focus = cf * CFrame.new(0, 0, -GetFocusDistance(cf))
+    end
+
+    PlayerState = {}
+    function PlayerState.Push() end
+
+    function PlayerState.Pop() end
+
+    function StartFreecam(pos)
+        if fcRunning then StopFreecam() end
+        local cf = pos or lastFreecamCF or Camera.CFrame
+        cameraRot = Vector2.new()
+        cameraPos = cf.Position
+        lastFreecamCF = cf
+        velSpring:Reset(Vector3.new())
+        panSpring:Reset(Vector2.new())
+        PlayerState.Push()
+        RunService:BindToRenderStep("Freecam", Enum.RenderPriority.Camera.Value, StepFreecam)
+        Input.StartCapture()
+        fcRunning = true
+    end
+
+    function StopFreecam()
+        if not fcRunning then return end
+        Input.StopCapture()
+        RunService:UnbindFromRenderStep("Freecam")
+        PlayerState.Pop()
+        fcRunning = false
+    end
+
+    function ResetFreecamPosition()
+        local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+        local hrp = char:WaitForChild("HumanoidRootPart")
+        local cf = hrp.CFrame * CFrame.new(0, 2, -8)
+        cameraPos = cf.Position
+        cameraRot = Vector2.new()
+        lastFreecamCF = cf
+    end
+
+    Misc:AddToggle({
+        Title = "Freecam Mode",
+        Default = false,
+        Callback = function(state)
+            if state then
+                StartFreecam()
+            else
+                StopFreecam()
+            end
+        end
+    })
+
+    Misc:AddButton({
+        Title = "Reset Freecam",
+        Content = "Reposition camera in front of player",
+        Callback = function()
+            if fcRunning then
+                ResetFreecamPosition()
+            end
         end
     })
 
