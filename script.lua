@@ -649,7 +649,7 @@ else
     local v137 = loadstring(game:HttpGet("https://raw.githubusercontent.com/TesterX14/XXXX/refs/heads/main/Library"))():Window({
         Title = "Neuro Hub |", 
         Footer = "Version 1.0.0", 
-        Image = "rbxassetid://119262194774700" 
+        Image = "119262194774700", 
         Color = Color3.fromRGB(0, 208, 255), 
         Theme = 9542022979, 
         Version = 3
