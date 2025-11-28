@@ -17,7 +17,7 @@ else
     if not l_LocalPlayer_0.Character or not l_LocalPlayer_0.Character:WaitForChild("HumanoidRootPart") then
         local _ = l_LocalPlayer_0.CharacterAdded:Wait():WaitForChild("HumanoidRootPart");
     end;
-    local v3 = "Chloe X/FishIt" .. "/Position.json";
+    local v3 = "Neuro/FishIt" .. "/Position.json";
     local v4 = {
         MerchantRoot = v0.PG.Merchant.Main.Background, 
         ItemsFrame = v0.PG.Merchant.Main.Background.Items.ScrollingFrame, 
@@ -649,7 +649,7 @@ else
     local v137 = loadstring(game:HttpGet("https://raw.githubusercontent.com/TesterX14/XXXX/refs/heads/main/Library"))():Window({
         Title = "Neuro Hub |", 
         Footer = "Version 1.0.0", 
-        Image = "138961663381631", 
+        Image = "77461382621338", 
         Color = Color3.fromRGB(0, 208, 255), 
         Theme = 9542022979, 
         Version = 3
@@ -2299,7 +2299,7 @@ else
                 v6.Events.Totem:FireServer(v427);
             end);
             if not l_status_8 then
-                warn("[Chloe X] Totem spawn failed:", tostring(l_result_8));
+                warn("[Neuro X] Totem spawn failed:", tostring(l_result_8));
             end;
             return;
         end;
@@ -4948,7 +4948,7 @@ else
                 return;
             else
                 l_hideident_0.overhead.TitleContainer.Visible = true;
-                l_hideident_0.titleLabel.Text = "Chloe X";
+                l_hideident_0.titleLabel.Text = "Neuro X";
                 l_hideident_0.gradient.Color = ColorSequence.new({
                     ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 85, 255)), 
                     ColorSequenceKeypoint.new(0.333, Color3.fromRGB(145, 186, 255)), 
@@ -5580,7 +5580,7 @@ else
                             }
                         }
                     }, 
-                    username = "Chloe X Notification!", 
+                    username = "Neuro Notification!", 
                     avatar_url = "https://i.imgur.com/9afHGRy.jpeg", 
                     attachments = {}
                 };
@@ -5908,7 +5908,7 @@ else
                                             }
                                         }, 
                                         footer = {
-                                            text = string.format("Chloe X Auto Sync | Every %dm", _G.WebhookFlags.Stats.Delay or 5), 
+                                            text = string.format("Neuro Auto Sync | Every %dm", _G.WebhookFlags.Stats.Delay or 5), 
                                             icon_url = "https://i.imgur.com/WltO8IG.png"
                                         }, 
                                         timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z")
@@ -5993,7 +5993,7 @@ else
                             }
                         }
                     }, 
-                    username = "Chloe X Notification!", 
+                    username = "Neuro X Notification!", 
                     avatar_url = "https://i.imgur.com/9afHGRy.jpeg"
                 };
                 task.spawn(function() --[[ Line: 0 ]] --[[ Name:  ]]
