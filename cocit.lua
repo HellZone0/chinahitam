@@ -1,17 +1,17 @@
 local HttpService = game:GetService("HttpService")
 
-if not isfolder("Neuro X") then
-    makefolder("Neuro X")
+if not isfolder("Chloe X") then
+    makefolder("Chloe X")
 end
-if not isfolder("Neuro X/Config") then
-    makefolder("Neuro X/Config")
+if not isfolder("Chloe X/Config") then
+    makefolder("Chloe X/Config")
 end
 
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "Neuro X/Config/Neuro_" .. gameName .. ".json"
+local ConfigFile = "Chloe X/Config/Chloe_" .. gameName .. ".json"
 
 ConfigData       = {}
 Elements         = {}
@@ -506,7 +506,7 @@ function Chloex:Window(GuiConfig)
     local LayersPageLayout = Instance.new("UIPageLayout");
 
     Chloeex.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    Neuroex.Name = "Neuroex"
+    Chloeex.Name = "Neuroex"
     Chloeex.ResetOnSpawn = false
     Chloeex.Parent = game:GetService("CoreGui")
 
